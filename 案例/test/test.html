@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const fn1 = () => {
+        //     console.log('fn1', this);
+        //     function fn2() {
+        //         console.log('fn2', this);
+        //     }
+        //     const fn3 = () => {
+        //         console.log('fn3', this);
+        //     }
+        //     fn2()
+        //     // fn3()
+        // }
+
+        // const obj = {
+        //     a: 11,
+        //     fn1,
+        // }
+
+        // obj.fn1()
+        // fn1()
+
+        // console.log(this);
+
+        function Fn() {
+            this.a = 'abc'
+            console.log(this);
+        }
+
+        const a = new Fn()
+        console.log(a);
+
+//         // const b = () => { console.log(this); }
+//         // b()
+//         var a = function (a, b, c) {
+//             console.log(this);
+//         }
+//         // console.log(a === window.a);
+//         // a()
+
+//         window.a()
+//         window.a.call(obj, a, b, c)
+//         window.a.apply(obj, [a, b, c])
+//         const newA = window.a.bind(obj, a, b, c)
+//         newA()
+//     </script>
+
+// </body>
+
+</html>

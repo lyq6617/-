@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = [1, [2, [3, [4, 5]]]]
+        const flatten = (arr) => {
+            let result = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    result = result.concat(flatten(arr[i]));
+                } else {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        };
+        console.log(flatten(a));
+
+
+        // const a = [1, [2, [3, [4, 5]]]];
+        // const flatten = (arr) => {
+        //     let result = [];
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (Array.isArray(arr[i])) {
+        //             result = result.concat(flatten(arr[i]));
+        //         } else {
+        //             result.push(arr[i]);
+        //         }
+        //     }
+        //     return result;
+        // };
+        // console.log(flatten(a));
+
+
+        function debounce(fn, delay) {
+            let timer = null;
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.apply(this, arguments);
+                }, delay)
+            }
+        }
+
+
+        function debounce(fn, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn(...args);
+                }, delay)
+            }
+        }
+
+        const fn = () => {
+            for (let i = 0; i < 10000000; i++) {
+                console.log(i);
+            }
+        }
+
+        const debouncedFn = debounce(fn, 1000)
+
+        window.addEventListener("scroll", () => {
+            debouncedFn()
+        })
+
+
+        function throttle(fn, delay) {
+            let flag = true;
+            return function () {
+                if (flag) {
+                    setTimeout(() => {
+                        fn(arguments);
+                        flag = true;
+                    }, delay)
+                    flag = false;
+                }
+            }
+        }
+
+        function throttle(fn, delay) {
+            let timer = null;
+            return function () {
+                if (timer === null) {
+                    timer = setTimeout(() => {
+                        fn.apply(this, arguments);
+                        timer = null
+                    }, delay)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

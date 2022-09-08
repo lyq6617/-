@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // o出现的位置以及次数
+        // var str = "oabcoefoxyozzopp";
+        // var index = str.indexOf('o');
+        // var num = 0;
+        // while (index != -1) {
+        //     console.log(index);
+        //     num++;
+        //     index = str.indexOf('o', index + 1)
+        // }
+        // console.log('O出现的次数是'+ num);
+
+
+        // // red出现的位置和次数
+        // var arr = ['red', 'blue', 'red', 'green', 'pink', 'red']
+        // var index = arr.indexOf('red');
+        // var num = 0;
+        // while (index != -1) {
+        //     console.log(index);
+        //     num++;
+        //     index = arr.indexOf('red', index + 1)
+        // }
+        // console.log('red出现的次数为' + num);
+
+        // 出现最多的字符以及出现次数
+        var str = 'abcoefoxyozzopp'
+        var o = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i);
+            if (o[chars]) {
+                o[chars]++;
+            } else {
+                o[chars] = 1
+            }
+        }
+        console.log(o);
+
+        var max = 0;
+        var ch = '';
+        for (var k in o) {
+            if (max < o[k]){
+                max = o[k];
+                ch = k;
+        }
+        }
+        console.log(max);
+        console.log('出现次数最多的字符是'+ch);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

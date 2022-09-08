@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+
+        }
+
+        input {
+            margin: 0 auto;
+            height: 20px;
+            width: 200px;
+            border: 1px solid #999;
+            outline: none;
+            color: #999;
+        }
+
+        .change {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="邮箱/ID/手机号" class="zh">
+        <input type="password" placeholder="密码" class="mm">
+    </div>
+    <script>
+        var zh = document.querySelector('.zh')
+        var mm = document.querySelector('.mm')
+        // zh.onfocus = function(){
+        //     this.value = '';
+        //     this.className = 'zh change'
+
+        // }
+        // zh.onblur = function(){
+        //     this.value = '邮箱/ID/手机号'
+        //     this.style.input;
+        // }
+        // mm.onfocus = function(){
+        //     this.value= '';
+        //     this.className='mm change' ;
+        //     this.type=password;  
+        // }
+        // mm.onblur = function(){
+        //     this.value = '密码';
+        // }
+        function change(target, ownClassName, placeholder) {
+            target.onfocus = function () {
+                this.placeholder = '';
+                this.className = ownClassName + ' change';
+            }
+            target.onblur = function () {
+                this.placeholder = placeholder ;
+                this.className = ownClassName;
+            }
+        }
+
+        change(zh,"zh","邮箱/ID/手机号");
+        change(mm,"mm","密码");
+    </script>
+
+</body>
+
+</html>
